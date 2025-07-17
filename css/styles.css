@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 95%;
+    min-height: 600px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.screen {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.instructions {
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.instructions h3 {
+    color: #1976d2;
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    list-style-position: inside;
+    color: #333;
+}
+
+.instructions li {
+    margin: 5px 0;
+}
+
+.player-input {
+    margin: 20px 0;
+}
+
+.player-input label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.player-input input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    max-width: 100%;
+}
+
+.player-input input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    color: white;
+}
+
+.btn-tertiary {
+    background: linear-gradient(45deg, #FF9800, #F57C00);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.target-color-container {
+    margin-bottom: 30px;
+}
+
+.target-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.target-color {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    border: 4px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.target-color-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto 30px;
+}
+
+.color-square {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 3px solid transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.color-square:hover {
+    transform: scale(1.1);
+    border-color: #333;
+}
+
+.color-square.correct {
+    animation: correctPulse 0.5s ease;
+}
+
+.color-square.wrong {
+    animation: wrongShake 0.5s ease;
+}
+
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); background-color: #4CAF50; }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.final-stats {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.final-stats div {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.final-stats span {
+    color: #1976d2;
+    font-weight: bold;
+}
+
+.ranking-list {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ranking-item.gold {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #333;
+}
+
+.ranking-item.silver {
+    background: linear-gradient(45deg, #C0C0C0, #A0A0A0);
+    color: #333;
+}
+
+.ranking-item.bronze {
+    background: linear-gradient(45deg, #CD7F32, #B8860B);
+    color: #333;
+}
+
+.ranking-position {
+    font-weight: bold;
+    font-size: 18px;
+    min-width: 40px;
+}
+
+.ranking-name {
+    flex: 1;
+    text-align: left;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.ranking-score {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.no-ranking {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 40px;
+}
+
+.end-buttons, .ranking-buttons {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .color-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .color-square {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .target-color {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
