@@ -8,79 +8,57 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Desafio das Cores</h1>
-            <div class="score-board">
-                <div class="score">Pontuação: <span id="score">0</span></div>
-                <div class="timer">Tempo: <span id="timer">30</span>s</div>
+        <h1>Desafio das Cores</h1>
+        
+        <div id="start-screen">
+            <p>Clique na cor indicada o mais rápido possível!</p>
+            <div class="player-input">
+                <input type="text" id="player-name" placeholder="Digite seu nome" maxlength="20">
             </div>
-        </header>
+            <button class="start-btn" onclick="startGame()">Jogar</button>
+        </div>
 
-        <main>
- 
-            <div id="start-screen" class="screen">
-                <h2>Bem-vindo ao Desafio das Cores!</h2>
-                <div class="instructions">
-                    <h3>Como jogar:</h3>
-                    <ul>
-                        <li>Clique na cor indicada no topo da tela</li>
-                        <li>Cada acerto vale +10 pontos</li>
-                        <li>Cada erro desconta -5 pontos</li>
-                        <li>Você tem 30 segundos para fazer o máximo de pontos</li>
-                        <li>A velocidade aumenta conforme você acerta!</li>
-                    </ul>
+        <div id="game-screen" class="hidden">
+            <div class="game-info">
+                <div class="info-item">
+                    <strong>Pontuação:</strong> <span id="score">0</span>
                 </div>
-                <div class="player-input">
-                    <label for="player-name">Seu nome:</label>
-                    <input type="text" id="player-name" placeholder="Digite seu nome" maxlength="20">
+                <div class="info-item">
+                    <strong>Tempo:</strong> <span id="timer">30</span>s
                 </div>
-                <button id="start-btn" class="btn btn-primary"> jogar</button>
-                <button id="ranking-btn" class="btn btn-secondary"> Ranking</button>
-            </div>
-
-            <div id="game-screen" class="screen hidden">
-                <div class="target-color-container">
-                    <div class="target-label">Clique na cor:</div>
-                    <div id="target-color" class="target-color"></div>
-                    <div id="target-color-name" class="target-color-name"></div>
-                </div>
-                
-                <div id="color-grid" class="color-grid">
-                    
-                </div>
-                
-                <div class="game-info">
-                    <div class="combo">Combo: <span id="combo">0</span></div>
-                    <div class="level">Nível: <span id="level">1</span></div>
+                <div class="info-item">
+                    <strong>Sequência:</strong> <span id="streak">0</span>
                 </div>
             </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            
+            <div class="target-color">
+                Clique na cor: <strong id="target-color-name">-</strong>
+            </div>
+            
+            <div class="game-grid" id="game-grid"></div>
+        </div>
 
-
-            <div id="end-screen" class="screen hidden">
+        <div id="game-over-screen" class="hidden">
+            <div class="game-over">
                 <h2>Jogo Finalizado!</h2>
-                <div class="final-stats">
-                    <div class="player-name">Jogador: <span id="final-player-name"></span></div>
-                    <div class="final-score">Pontuação Final: <span id="final-score"></span></div>
-                    <div class="final-level">Nível Alcançado: <span id="final-level"></span></div>
-                    <div class="final-combo">Maior Combo: <span id="final-combo"></span></div>
-                </div>
-                <div class="end-buttons">
-                    <button id="play-again-btn" class="btn btn-primary"> Jogar Novamente</button>
-                    <button id="view-ranking-btn" class="btn btn-secondary"> Ver Ranking</button>
-                    <button id="back-to-menu-btn" class="btn btn-tertiary"> Menu Principal</button>
-                </div>
+                <p><strong>Jogador:</strong> <span id="final-player-name">-</span></p>
+                <p><strong>Pontuação Final:</strong> <span id="final-score">0</span></p>
+                <p><strong>Maior Sequência:</strong> <span id="final-streak">0</span></p>
+                <button class="restart-btn" onclick="restartGame()">Jogar Novamente</button>
             </div>
-
-            <div id="ranking-screen" class="screen hidden">
-                <h2> Ranking dos Melhores</h2>
-                <div id="ranking-list" class="ranking-list">
-                </div>
-                <div class="ranking-buttons">
-                    <button id="clear-ranking-btn" class="btn btn-danger"> Limpar Ranking</button>
-                    <button id="back-from-ranking-btn" class="btn btn-secondary"> Voltar</button>
-                </div>
+            
+            <div class="ranking" id="ranking">
+                <h3>Ranking dos Melhores Jogadores</h3>
+                <p style="text-align: center; font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">
+                     <strong>Critério:</strong> Pontuação total, depois maior sequência
+                </p>
+                <div id="ranking-list"></div>
             </div>
-        </main>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
