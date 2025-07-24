@@ -57,7 +57,6 @@ class ColorChallengeGame {
         document.getElementById('play-again-btn').addEventListener('click', () => this.startGame());
         document.getElementById('view-ranking-btn').addEventListener('click', () => this.showRanking());
         document.getElementById('back-to-menu-btn').addEventListener('click', () => this.showStartScreen());
-        document.getElementById('clear-ranking-btn').addEventListener('click', () => this.clearRanking());
         document.getElementById('back-from-ranking-btn').addEventListener('click', () => this.showStartScreen());
         this.elements.playerNameInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
