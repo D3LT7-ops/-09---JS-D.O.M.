@@ -245,13 +245,6 @@ class ColorChallengeGame {
         }
         
         this.showScreen('ranking');
-    }
-    
-    clearRanking() {
-        if (confirm('Tem certeza que deseja limpar todo o ranking?')) {
-            window.gameRanking = [];
-            this.showRanking();
-        }
     }   
     showScreen(screenName) {
         Object.values(this.screens).forEach(screen => {
