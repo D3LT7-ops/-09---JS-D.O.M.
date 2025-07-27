@@ -16,7 +16,7 @@ O **Desafio das Cores** é um jogo de reflexo e raciocínio onde você deve clic
   - Perde 5 pontos (sem valor negativo).
   - Combo é resetado.
 - O jogo possui **30 segundos** de duração.
-- A cada 10 acertos consecutivos, o nível aumenta e o grid pode ficar maior e mais desafiador.
+
 
 ##  Restrições Aplicadas
 
@@ -46,7 +46,6 @@ O **Desafio das Cores** é um jogo de reflexo e raciocínio onde você deve clic
 3. Clique no botão **"Jogar"**.
 4. Clique nas cores corretas o mais rápido possível.
 5. Veja sua pontuação final e tente bater o recorde no ranking!
-
 
 
 # Licença do Projeto
